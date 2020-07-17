@@ -3,23 +3,11 @@
 ### Setup env with full docker - useful for Ubuntu/Mac development
 Start docker with:
 ```
-cp docker-compose.yml-dev docker-compose.yml
+cp docker-compose-dist.yml docker-compose.yml
 docker-compose build
 docker-compose up -d
 docker-compose exec php composer install
 ```
-
-Login http://localhost:8080/admin with:
-```
-root@root.pl / root
-```
-
-Prepare dev database with:
-```
-echo 'DATABASE_URL=mysql://root:P@ssw0rd@127.0.0.1:3307/default' >> .env.dev.local
-docker-compose exec php bash reset_dev_db.sh
-```
-
 
 ### Setup env with local php - useful for Windows WSL development
 
@@ -28,7 +16,7 @@ php7.4, composer, symfony-cli
 
 Start docker with (comment out nginx, php, frontend):
 ```
-cp docker-compose.yml-dist docker-compose.yml
+cp docker-compose-dist.yml docker-compose.yml
 docker-compose up -d
 composer install
 ```
